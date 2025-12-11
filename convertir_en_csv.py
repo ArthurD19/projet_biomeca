@@ -1,12 +1,13 @@
 import ezc3d
 import csv
 
+
 c3d_Chrono250 = ezc3d.c3d("data/Chrono250_c3d.c3d")
 c3d_Chrono300 = ezc3d.c3d("data/Chrono300_c3d.c3d")
-c3d_Chrono500 = ezc3d.c3d("data/Chrono500_c3d.c3d")
+c3d_Chrono500 = ezc3d.c3d("data/Chrono350_c3d.c3d")
 c3d_Route250 = ezc3d.c3d("data/Route250_c3d.c3d")
 c3d_Route300 = ezc3d.c3d("data/Route300_c3d.c3d")
-c3d_Route500 = ezc3d.c3d("data/Route500_c3d.c3d")
+c3d_Route500 = ezc3d.c3d("data/Route350_c3d.c3d")
 
 liste_fichiers = [c3d_Chrono250, c3d_Chrono300, c3d_Chrono500, c3d_Route250, c3d_Route300,
                   c3d_Route500]
