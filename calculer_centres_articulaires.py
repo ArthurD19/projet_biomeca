@@ -828,7 +828,7 @@ for frame in df_Chrono250["Frame"].unique():
     df_droite = df_Chrono250[(df_Chrono250["Marker_Name"].isin(utiles_d_w)) &
                              (df_Chrono250["Frame"] == frame)]
     # Calcul de w
-    w = (df_droite["Marker_Name"] == "pRightASI") - (df_droite["Marker_Name"] == "pLeftASI")
+    w = df_droite[df_droite["Marker_Name"] == "pRightASI"] - df_droite[df_droite["Marker_Name"] == "pLeftASI"]
     # Calcul de d
     centre_1_x = ((df_droite[df_droite["Marker_Name"] == "pRightASI"]["X"].values[0]) +
                   (df_droite[df_droite["Marker_Name"] == "pLeftASI"]["X"].values[0])) / 2
@@ -865,7 +865,7 @@ for frame in df_Chrono300["Frame"].unique():
     df_droite = df_Chrono300[(df_Chrono300["Marker_Name"].isin(utiles_d_w)) &
                              (df_Chrono300["Frame"] == frame)]
     # Calcul de w
-    w = (df_droite["Marker_Name"] == "pRightASI") - (df_droite["Marker_Name"] == "pLeftASI")
+    w = df_droite[df_droite["Marker_Name"] == "pRightASI"] - df_droite[df_droite["Marker_Name"] == "pLeftASI"]
     # Calcul de d
     centre_1_x = ((df_droite[df_droite["Marker_Name"] == "pRightASI"]["X"].values[0]) +
                   (df_droite[df_droite["Marker_Name"] == "pLeftASI"]["X"].values[0])) / 2
@@ -902,7 +902,7 @@ for frame in df_Chrono350["Frame"].unique():
     df_droite = df_Chrono350[(df_Chrono350["Marker_Name"].isin(utiles_d_w)) &
                              (df_Chrono350["Frame"] == frame)]
     # Calcul de w
-    w = (df_droite["Marker_Name"] == "pRightASI") - (df_droite["Marker_Name"] == "pLeftASI")
+    w = df_droite[df_droite["Marker_Name"] == "pRightASI"] - df_droite[df_droite["Marker_Name"] == "pLeftASI"]
     # Calcul de d
     centre_1_x = ((df_droite[df_droite["Marker_Name"] == "pRightASI"]["X"].values[0]) +
                   (df_droite[df_droite["Marker_Name"] == "pLeftASI"]["X"].values[0])) / 2
@@ -937,9 +937,9 @@ d_Route250 = []
 
 for frame in df_Route250["Frame"].unique():
     df_droite = df_Route250[(df_Route250["Marker_Name"].isin(utiles_d_w)) &
-                             (df_Route250["Frame"] == frame)]
+                            (df_Route250["Frame"] == frame)]
     # Calcul de w
-    w = (df_droite["Marker_Name"] == "pRightASI") - (df_droite["Marker_Name"] == "pLeftASI")
+    w = df_droite[df_droite["Marker_Name"] == "pRightASI"] - df_droite[df_droite["Marker_Name"] == "pLeftASI"]
     # Calcul de d
     centre_1_x = ((df_droite[df_droite["Marker_Name"] == "pRightASI"]["X"].values[0]) +
                   (df_droite[df_droite["Marker_Name"] == "pLeftASI"]["X"].values[0])) / 2
@@ -966,9 +966,9 @@ d_Route300 = []
 
 for frame in df_Route300["Frame"].unique():
     df_droite = df_Route300[(df_Route300["Marker_Name"].isin(utiles_d_w)) &
-                             (df_Route300["Frame"] == frame)]
+                            (df_Route300["Frame"] == frame)]
     # Calcul de w
-    w = (df_droite["Marker_Name"] == "pRightASI") - (df_droite["Marker_Name"] == "pLeftASI")
+    w = df_droite[df_droite["Marker_Name"] == "pRightASI"] - df_droite[df_droite["Marker_Name"] == "pLeftASI"]
     # Calcul de d
     centre_1_x = ((df_droite[df_droite["Marker_Name"] == "pRightASI"]["X"].values[0]) +
                   (df_droite[df_droite["Marker_Name"] == "pLeftASI"]["X"].values[0])) / 2
@@ -995,9 +995,9 @@ d_Route350 = []
 
 for frame in df_Route350["Frame"].unique():
     df_droite = df_Route350[(df_Route350["Marker_Name"].isin(utiles_d_w)) &
-                             (df_Route350["Frame"] == frame)]
+                            (df_Route350["Frame"] == frame)]
     # Calcul de w
-    w = (df_droite["Marker_Name"] == "pRightASI") - (df_droite["Marker_Name"] == "pLeftASI")
+    w = df_droite[df_droite["Marker_Name"] == "pRightASI"] - df_droite[df_droite["Marker_Name"] == "pLeftASI"]
     # Calcul de d
     centre_1_x = ((df_droite[df_droite["Marker_Name"] == "pRightASI"]["X"].values[0]) +
                   (df_droite[df_droite["Marker_Name"] == "pLeftASI"]["X"].values[0])) / 2
