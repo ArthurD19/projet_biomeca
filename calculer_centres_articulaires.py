@@ -2,6 +2,10 @@ import pandas as pd
 import numpy as np
 
 
+#####################################################################################################
+
+# Lecture des fichiers CSV
+
 df_Chrono250 = pd.read_csv("Chrono250.csv")
 df_Chrono300 = pd.read_csv("Chrono300.csv")
 df_Chrono350 = pd.read_csv("Chrono350.csv")
@@ -51,6 +55,8 @@ utiles_genou_droit = ["pRightKneeLatEpicondyle", "pRightKneeMedEpicondyle"]
 utiles_genou_gauche = ["pLeftKneeLatEpicondyle", "pLeftKneeMedEpicondyle"]
 utiles_pelvis = ["pRightASI", "pLeftASI"]
 utiles_d_w = ["pRightASI", "pLeftASI", "pRightCSI", "pLeftCSI"]
+
+##################################################################################################
 
 # Calcul pour le pelvis -Chrono250
 centre_pelvis_Chrono250 = []
@@ -165,6 +171,8 @@ for frame in df_Route350["Frame"].unique():
          "Y": coord_Y,
          "Z": coord_Z}
     )
+
+######################################################################################################
 
 # Calcul du centre articulaire de la cheville - Chrono250
 centre_cheville_droite_Chrono250 = []
@@ -370,6 +378,8 @@ for frame in df_Route350["Frame"].unique():
          "Z": coord_Zg}
     )
 
+###################################################################################################
+
 # Calcul du centre articulaire du genou - Chrono250
 centre_genou_droit_Chrono250 = []
 centre_genou_gauche_Chrono250 = []
@@ -572,6 +582,8 @@ for frame in df_Route350["Frame"].unique():
          "Y": coord_Yg,
          "Z": coord_Zg}
     )
+
+###############################################################################################
 
 # Calcul du centre articulaire du coude - Chrono250
 centre_coude_droit_Chrono250 = []
@@ -776,6 +788,8 @@ for frame in df_Route350["Frame"].unique():
          "Z": coord_Zg}
     )
 
+###################################################################################################
+
 # On les convertit tous en dataframe
 df_centre_pelvis_chrono250 = pd.DataFrame(centre_pelvis_Chrono250)
 df_centre_pelvis_chrono300 = pd.DataFrame(centre_pelvis_Chrono300)
@@ -819,6 +833,8 @@ df_centre_coude_droite_route350 = pd.DataFrame(centre_coude_droit_Route350)
 df_centre_coude_gauche_route250 = pd.DataFrame(centre_coude_gauche_Route250)
 df_centre_coude_gauche_route300 = pd.DataFrame(centre_coude_gauche_Route350)
 df_centre_coude_gauche_route350 = pd.DataFrame(centre_coude_gauche_Route350)
+
+###############################################################################################
 
 # Calcul de d et w - Chrono250
 w_Chrono250 = []
@@ -1031,6 +1047,8 @@ df_d_Chrono350 = pd.DataFrame(d_Chrono350)
 df_d_Route250 = pd.DataFrame(d_Route250)
 df_d_Route300 = pd.DataFrame(d_Route300)
 df_d_Route350 = pd.DataFrame(d_Route350)
+
+################################################################################################
 
 # Calcul centre hanche - Chrono250
 centre_hanche_droit_Chrono250 = []
