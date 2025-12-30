@@ -58,8 +58,18 @@ utiles_d_w = ["pRightASI", "pLeftASI", "pRightCSI", "pLeftCSI"]
 
 ##################################################################################################
 
+# On initialise les tableaux des centres articulaires 
+
+centre_Chrono250 = []
+centre_Chrono300 = []
+centre_Chrono350 = []
+centre_Route250 = []
+centre_Route300 = []
+centre_Route350 = []
+
+##################################################################################################
+
 # Calcul pour le pelvis -Chrono250
-centre_pelvis_Chrono250 = []
 
 for frame in df_Chrono250["Frame"].unique():
     df_droite = df_Chrono250[(df_Chrono250["Marker_Name"].isin(utiles_pelvis)) &
@@ -69,7 +79,7 @@ for frame in df_Chrono250["Frame"].unique():
     coord_Y = df_droite["Y"].mean()
     coord_Z = df_droite["Z"].mean()
     # On l'ajoute au centre de cheville droite
-    centre_pelvis_Chrono250.append(
+    centre_Chrono250.append(
         {"Frame": frame,
          "Marker_Name": "Pelvis",
          "X": coord_X,
@@ -78,7 +88,6 @@ for frame in df_Chrono250["Frame"].unique():
     )
 
 # Calcul pour le pelvis -Chrono300
-centre_pelvis_Chrono300 = []
 
 for frame in df_Chrono300["Frame"].unique():
     df_droite = df_Chrono300[(df_Chrono300["Marker_Name"].isin(utiles_pelvis)) &
@@ -88,7 +97,7 @@ for frame in df_Chrono300["Frame"].unique():
     coord_Y = df_droite["Y"].mean()
     coord_Z = df_droite["Z"].mean()
     # On l'ajoute au centre de cheville droite
-    centre_pelvis_Chrono300.append(
+    centre_Chrono300.append(
         {"Frame": frame,
          "Marker_Name": "Pelvis",
          "X": coord_X,
@@ -97,7 +106,6 @@ for frame in df_Chrono300["Frame"].unique():
     )
 
 # Calcul pour le pelvis -Chrono350
-centre_pelvis_Chrono350 = []
 
 for frame in df_Chrono350["Frame"].unique():
     df_droite = df_Chrono350[(df_Chrono350["Marker_Name"].isin(utiles_pelvis)) &
@@ -107,7 +115,7 @@ for frame in df_Chrono350["Frame"].unique():
     coord_Y = df_droite["Y"].mean()
     coord_Z = df_droite["Z"].mean()
     # On l'ajoute au centre de cheville droite
-    centre_pelvis_Chrono350.append(
+    centre_Chrono350.append(
         {"Frame": frame,
          "Marker_Name": "Pelvis",
          "X": coord_X,
@@ -116,7 +124,6 @@ for frame in df_Chrono350["Frame"].unique():
     )
 
 # Calcul pour le pelvis -Route250
-centre_pelvis_Route250 = []
 
 for frame in df_Route250["Frame"].unique():
     df_droite = df_Route250[(df_Route250["Marker_Name"].isin(utiles_pelvis)) &
@@ -126,7 +133,7 @@ for frame in df_Route250["Frame"].unique():
     coord_Y = df_droite["Y"].mean()
     coord_Z = df_droite["Z"].mean()
     # On l'ajoute au centre de cheville droite
-    centre_pelvis_Route250.append(
+    centre_Route250.append(
         {"Frame": frame,
          "Marker_Name": "Pelvis",
          "X": coord_X,
@@ -135,7 +142,6 @@ for frame in df_Route250["Frame"].unique():
     )
 
 # Calcul pour le pelvis -Route300
-centre_pelvis_Route300 = []
 
 for frame in df_Route300["Frame"].unique():
     df_droite = df_Route300[(df_Route300["Marker_Name"].isin(utiles_pelvis)) &
@@ -145,7 +151,7 @@ for frame in df_Route300["Frame"].unique():
     coord_Y = df_droite["Y"].mean()
     coord_Z = df_droite["Z"].mean()
     # On l'ajoute au centre de cheville droite
-    centre_pelvis_Route300.append(
+    centre_Route300.append(
         {"Frame": frame,
          "Marker_Name": "Pelvis",
          "X": coord_X,
@@ -154,7 +160,6 @@ for frame in df_Route300["Frame"].unique():
     )
 
 # Calcul pour le pelvis -Route350
-centre_pelvis_Route350 = []
 
 for frame in df_Route350["Frame"].unique():
     df_droite = df_Route350[(df_Route350["Marker_Name"].isin(utiles_pelvis)) &
@@ -164,7 +169,7 @@ for frame in df_Route350["Frame"].unique():
     coord_Y = df_droite["Y"].mean()
     coord_Z = df_droite["Z"].mean()
     # On l'ajoute au centre de cheville droite
-    centre_pelvis_Route350.append(
+    centre_Route350.append(
         {"Frame": frame,
          "Marker_Name": "Pelvis",
          "X": coord_X,
@@ -175,8 +180,6 @@ for frame in df_Route350["Frame"].unique():
 ######################################################################################################
 
 # Calcul du centre articulaire de la cheville - Chrono250
-centre_cheville_droite_Chrono250 = []
-centre_cheville_gauche_Chrono250 = []
 
 for frame in df_Chrono250["Frame"].unique():
     df_droite = df_Chrono250[(df_Chrono250["Marker_Name"].isin(utiles_cheville_droite)) &
@@ -188,7 +191,7 @@ for frame in df_Chrono250["Frame"].unique():
     coord_Yd = df_droite["Y"].mean()
     coord_Zd = df_droite["Z"].mean()
     # On l'ajoute au centre de cheville droite
-    centre_cheville_droite_Chrono250.append(
+    centre_Chrono250.append(
         {"Frame": frame,
          "Marker_Name": "Cheville droite",
          "X": coord_Xd,
@@ -200,7 +203,7 @@ for frame in df_Chrono250["Frame"].unique():
     coord_Yg = df_gauche["Y"].mean()
     coord_Zg = df_gauche["Z"].mean()
     # On l'ajoute au centre de cheville droite
-    centre_cheville_gauche_Chrono250.append(
+    centre_Chrono250.append(
         {"Frame": frame,
          "Marker_Name": "Cheville gauche",
          "X": coord_Xg,
@@ -209,8 +212,6 @@ for frame in df_Chrono250["Frame"].unique():
     )
 
 # Calcul du centre articulaire de la cheville - Chrono300
-centre_cheville_droite_Chrono300 = []
-centre_cheville_gauche_Chrono300 = []
 
 for frame in df_Chrono300["Frame"].unique():
     df_droite = df_Chrono300[(df_Chrono300["Marker_Name"].isin(utiles_cheville_droite)) &
@@ -222,7 +223,7 @@ for frame in df_Chrono300["Frame"].unique():
     coord_Yd = df_droite["Y"].mean()
     coord_Zd = df_droite["Z"].mean()
     # On l'ajoute au centre de cheville droite
-    centre_cheville_droite_Chrono300.append(
+    centre_Chrono300.append(
         {"Frame": frame,
          "Marker_Name": "Cheville droite",
          "X": coord_Xd,
@@ -234,7 +235,7 @@ for frame in df_Chrono300["Frame"].unique():
     coord_Yg = df_gauche["Y"].mean()
     coord_Zg = df_gauche["Z"].mean()
     # On l'ajoute au centre de cheville droite
-    centre_cheville_gauche_Chrono300.append(
+    centre_Chrono300.append(
         {"Frame": frame,
          "Marker_Name": "Cheville gauche",
          "X": coord_Xg,
@@ -243,8 +244,6 @@ for frame in df_Chrono300["Frame"].unique():
     )
 
 # Calcul du centre articulaire de la cheville - Chrono350
-centre_cheville_droite_Chrono350 = []
-centre_cheville_gauche_Chrono350 = []
 
 for frame in df_Chrono350["Frame"].unique():
     df_droite = df_Chrono350[(df_Chrono350["Marker_Name"].isin(utiles_cheville_droite)) &
@@ -256,7 +255,7 @@ for frame in df_Chrono350["Frame"].unique():
     coord_Yd = df_droite["Y"].mean()
     coord_Zd = df_droite["Z"].mean()
     # On l'ajoute au centre de cheville droite
-    centre_cheville_droite_Chrono350.append(
+    centre_Chrono350.append(
         {"Frame": frame,
          "Marker_Name": "Cheville droite",
          "X": coord_Xd,
@@ -268,7 +267,7 @@ for frame in df_Chrono350["Frame"].unique():
     coord_Yg = df_gauche["Y"].mean()
     coord_Zg = df_gauche["Z"].mean()
     # On l'ajoute au centre de cheville droite
-    centre_cheville_gauche_Chrono350.append(
+    centre_Chrono350.append(
         {"Frame": frame,
          "Marker_Name": "Cheville gauche",
          "X": coord_Xg,
@@ -277,8 +276,6 @@ for frame in df_Chrono350["Frame"].unique():
     )
 
 # Calcul du centre articulaire de la cheville - Route250
-centre_cheville_droite_Route250 = []
-centre_cheville_gauche_Route250 = []
 
 for frame in df_Route250["Frame"].unique():
     df_droite = df_Route250[(df_Route250["Marker_Name"].isin(utiles_cheville_droite)) &
@@ -290,7 +287,7 @@ for frame in df_Route250["Frame"].unique():
     coord_Yd = df_droite["Y"].mean()
     coord_Zd = df_droite["Z"].mean()
     # On l'ajoute au centre de cheville droite
-    centre_cheville_droite_Route250.append(
+    centre_Route250.append(
         {"Frame": frame,
          "Marker_Name": "Cheville droite",
          "X": coord_Xd,
@@ -302,7 +299,7 @@ for frame in df_Route250["Frame"].unique():
     coord_Yg = df_gauche["Y"].mean()
     coord_Zg = df_gauche["Z"].mean()
     # On l'ajoute au centre de cheville droite
-    centre_cheville_gauche_Route250.append(
+    centre_Route250.append(
         {"Frame": frame,
          "Marker_Name": "Cheville gauche",
          "X": coord_Xg,
@@ -311,8 +308,6 @@ for frame in df_Route250["Frame"].unique():
     )
 
 # Calcul du centre articulaire de la cheville - Route300
-centre_cheville_droite_Route300 = []
-centre_cheville_gauche_Route300 = []
 
 for frame in df_Route300["Frame"].unique():
     df_droite = df_Route300[(df_Route300["Marker_Name"].isin(utiles_cheville_droite)) &
@@ -324,7 +319,7 @@ for frame in df_Route300["Frame"].unique():
     coord_Yd = df_droite["Y"].mean()
     coord_Zd = df_droite["Z"].mean()
     # On l'ajoute au centre de cheville droite
-    centre_cheville_droite_Route300.append(
+    centre_Route300.append(
         {"Frame": frame,
          "Marker_Name": "Cheville droite",
          "X": coord_Xd,
@@ -336,7 +331,7 @@ for frame in df_Route300["Frame"].unique():
     coord_Yg = df_gauche["Y"].mean()
     coord_Zg = df_gauche["Z"].mean()
     # On l'ajoute au centre de cheville droite
-    centre_cheville_gauche_Route300.append(
+    centre_Route300.append(
         {"Frame": frame,
          "Marker_Name": "Cheville gauche",
          "X": coord_Xg,
@@ -345,8 +340,6 @@ for frame in df_Route300["Frame"].unique():
     )
 
 # Calcul du centre articulaire de la cheville - Chrono350
-centre_cheville_droite_Route350 = []
-centre_cheville_gauche_Route350 = []
 
 for frame in df_Route350["Frame"].unique():
     df_droite = df_Route350[(df_Route350["Marker_Name"].isin(utiles_cheville_droite)) &
@@ -358,7 +351,7 @@ for frame in df_Route350["Frame"].unique():
     coord_Yd = df_droite["Y"].mean()
     coord_Zd = df_droite["Z"].mean()
     # On l'ajoute au centre de cheville droite
-    centre_cheville_droite_Route350.append(
+    centre_Route350.append(
         {"Frame": frame,
          "Marker_Name": "Cheville droite",
          "X": coord_Xd,
@@ -370,7 +363,7 @@ for frame in df_Route350["Frame"].unique():
     coord_Yg = df_gauche["Y"].mean()
     coord_Zg = df_gauche["Z"].mean()
     # On l'ajoute au centre de cheville droite
-    centre_cheville_gauche_Route350.append(
+    centre_Route350.append(
         {"Frame": frame,
          "Marker_Name": "Cheville gauche",
          "X": coord_Xg,
@@ -381,8 +374,6 @@ for frame in df_Route350["Frame"].unique():
 ###################################################################################################
 
 # Calcul du centre articulaire du genou - Chrono250
-centre_genou_droit_Chrono250 = []
-centre_genou_gauche_Chrono250 = []
 
 for frame in df_Chrono250["Frame"].unique():
     df_droite = df_Chrono250[(df_Chrono250["Marker_Name"].isin(utiles_genou_droit)) &
@@ -394,7 +385,7 @@ for frame in df_Chrono250["Frame"].unique():
     coord_Yd = df_droite["Y"].mean()
     coord_Zd = df_droite["Z"].mean()
     # On l'ajoute au centre du genou droit
-    centre_genou_droit_Chrono250.append(
+    centre_Chrono250.append(
         {"Frame": frame,
          "Marker_Name": "Genou droit",
          "X": coord_Xd,
@@ -406,7 +397,7 @@ for frame in df_Chrono250["Frame"].unique():
     coord_Yg = df_gauche["Y"].mean()
     coord_Zg = df_gauche["Z"].mean()
     # On l'ajoute au centre du genou gauche
-    centre_genou_gauche_Chrono250.append(
+    centre_Chrono250.append(
         {"Frame": frame,
          "Marker_Name": "Genou gauche",
          "X": coord_Xg,
@@ -415,8 +406,6 @@ for frame in df_Chrono250["Frame"].unique():
     )
 
 # Calcul du centre articulaire du genou - Chrono300
-centre_genou_droit_Chrono300 = []
-centre_genou_gauche_Chrono300 = []
 
 for frame in df_Chrono300["Frame"].unique():
     df_droite = df_Chrono300[(df_Chrono300["Marker_Name"].isin(utiles_genou_droit)) &
@@ -428,7 +417,7 @@ for frame in df_Chrono300["Frame"].unique():
     coord_Yd = df_droite["Y"].mean()
     coord_Zd = df_droite["Z"].mean()
     # On l'ajoute au centre du genou droit
-    centre_genou_droit_Chrono300.append(
+    centre_Chrono300.append(
         {"Frame": frame,
          "Marker_Name": "Genou droit",
          "X": coord_Xd,
@@ -440,7 +429,7 @@ for frame in df_Chrono300["Frame"].unique():
     coord_Yg = df_gauche["Y"].mean()
     coord_Zg = df_gauche["Z"].mean()
     # On l'ajoute au centre du genou gauche
-    centre_genou_gauche_Chrono300.append(
+    centre_Chrono300.append(
         {"Frame": frame,
          "Marker_Name": "Genou gauche",
          "X": coord_Xg,
@@ -449,8 +438,6 @@ for frame in df_Chrono300["Frame"].unique():
     )
 
 # Calcul du centre articulaire du genou - Chrono350
-centre_genou_droit_Chrono350 = []
-centre_genou_gauche_Chrono350 = []
 
 for frame in df_Chrono350["Frame"].unique():
     df_droite = df_Chrono350[(df_Chrono350["Marker_Name"].isin(utiles_genou_droit)) &
@@ -462,7 +449,7 @@ for frame in df_Chrono350["Frame"].unique():
     coord_Yd = df_droite["Y"].mean()
     coord_Zd = df_droite["Z"].mean()
     # On l'ajoute au centre du genou droit
-    centre_genou_droit_Chrono350.append(
+    centre_Chrono350.append(
         {"Frame": frame,
          "Marker_Name": "Genou droit",
          "X": coord_Xd,
@@ -474,7 +461,7 @@ for frame in df_Chrono350["Frame"].unique():
     coord_Yg = df_gauche["Y"].mean()
     coord_Zg = df_gauche["Z"].mean()
     # On l'ajoute au centre du genou gauche
-    centre_genou_gauche_Chrono350.append(
+    centre_Chrono350.append(
         {"Frame": frame,
          "Marker_Name": "Genou gauche",
          "X": coord_Xg,
@@ -483,8 +470,6 @@ for frame in df_Chrono350["Frame"].unique():
     )
 
 # Calcul du centre articulaire du genou - Route250
-centre_genou_droit_Route250 = []
-centre_genou_gauche_Route250 = []
 
 for frame in df_Route250["Frame"].unique():
     df_droite = df_Route250[(df_Route250["Marker_Name"].isin(utiles_genou_droit)) &
@@ -496,7 +481,7 @@ for frame in df_Route250["Frame"].unique():
     coord_Yd = df_droite["Y"].mean()
     coord_Zd = df_droite["Z"].mean()
     # On l'ajoute au centre du genou droit
-    centre_genou_droit_Route250.append(
+    centre_Route250.append(
         {"Frame": frame,
          "Marker_Name": "Genou droit",
          "X": coord_Xd,
@@ -508,7 +493,7 @@ for frame in df_Route250["Frame"].unique():
     coord_Yg = df_gauche["Y"].mean()
     coord_Zg = df_gauche["Z"].mean()
     # On l'ajoute au centre du genou gauche
-    centre_genou_gauche_Route250.append(
+    centre_Route250.append(
         {"Frame": frame,
          "Marker_Name": "Genou gauche",
          "X": coord_Xg,
@@ -516,8 +501,6 @@ for frame in df_Route250["Frame"].unique():
          "Z": coord_Zg})
 
 # Calcul du centre articulaire du genou - Route300
-centre_genou_droit_Route300 = []
-centre_genou_gauche_Route300 = []
 
 for frame in df_Route300["Frame"].unique():
     df_droite = df_Route300[(df_Route300["Marker_Name"].isin(utiles_genou_droit)) &
@@ -529,7 +512,7 @@ for frame in df_Route300["Frame"].unique():
     coord_Yd = df_droite["Y"].mean()
     coord_Zd = df_droite["Z"].mean()
     # On l'ajoute au centre du genou droit
-    centre_genou_droit_Route300.append(
+    centre_Route300.append(
         {"Frame": frame,
          "Marker_Name": "Genou droit",
          "X": coord_Xd,
@@ -541,7 +524,7 @@ for frame in df_Route300["Frame"].unique():
     coord_Yg = df_gauche["Y"].mean()
     coord_Zg = df_gauche["Z"].mean()
     # On l'ajoute au centre du genou gauche
-    centre_genou_gauche_Route300.append(
+    centre_Route300.append(
         {"Frame": frame,
          "Marker_Name": "Genou gauche",
          "X": coord_Xg,
@@ -550,8 +533,6 @@ for frame in df_Route300["Frame"].unique():
     )
 
 # Calcul du centre articulaire du genou - Route350
-centre_genou_droit_Route350 = []
-centre_genou_gauche_Route350 = []
 
 for frame in df_Route350["Frame"].unique():
     df_droite = df_Route350[(df_Route350["Marker_Name"].isin(utiles_genou_droit)) &
@@ -563,7 +544,7 @@ for frame in df_Route350["Frame"].unique():
     coord_Yd = df_droite["Y"].mean()
     coord_Zd = df_droite["Z"].mean()
     # On l'ajoute au centre du genou droit
-    centre_genou_droit_Route350.append(
+    centre_Route350.append(
         {"Frame": frame,
          "Marker_Name": "Genou droite",
          "X": coord_Xd,
@@ -575,7 +556,7 @@ for frame in df_Route350["Frame"].unique():
     coord_Yg = df_gauche["Y"].mean()
     coord_Zg = df_gauche["Z"].mean()
     # On l'ajoute au centre du genou gauche
-    centre_genou_gauche_Route350.append(
+    centre_Route350.append(
         {"Frame": frame,
          "Marker_Name": "Genou gauche",
          "X": coord_Xg,
@@ -586,8 +567,6 @@ for frame in df_Route350["Frame"].unique():
 ###############################################################################################
 
 # Calcul du centre articulaire du coude - Chrono250
-centre_coude_droit_Chrono250 = []
-centre_coude_gauche_Chrono250 = []
 
 for frame in df_Chrono250["Frame"].unique():
     df_droite = df_Chrono250[(df_Chrono250["Marker_Name"].isin(utiles_coude_droit)) &
@@ -599,7 +578,7 @@ for frame in df_Chrono250["Frame"].unique():
     coord_Yd = df_droite["Y"].mean()
     coord_Zd = df_droite["Z"].mean()
     # On l'ajoute au centre du coude droit
-    centre_coude_droit_Chrono250.append(
+    centre_Chrono250.append(
         {"Frame": frame,
          "Marker_Name": "Coude droit",
          "X": coord_Xd,
@@ -611,7 +590,7 @@ for frame in df_Chrono250["Frame"].unique():
     coord_Yg = df_gauche["Y"].mean()
     coord_Zg = df_gauche["Z"].mean()
     # On l'ajoute au centre du coude gauche
-    centre_coude_gauche_Chrono250.append(
+    centre_Chrono250.append(
         {"Frame": frame,
          "Marker_Name": "Coude gauche",
          "X": coord_Xg,
@@ -620,8 +599,6 @@ for frame in df_Chrono250["Frame"].unique():
     )
 
 # Calcul du centre articulaire du coude - Chrono300
-centre_coude_droit_Chrono300 = []
-centre_coude_gauche_Chrono300 = []
 
 for frame in df_Chrono300["Frame"].unique():
     df_droite = df_Chrono300[(df_Chrono300["Marker_Name"].isin(utiles_coude_droit)) &
@@ -633,7 +610,7 @@ for frame in df_Chrono300["Frame"].unique():
     coord_Yd = df_droite["Y"].mean()
     coord_Zd = df_droite["Z"].mean()
     # On l'ajoute au centre du coude droit
-    centre_coude_droit_Chrono300.append(
+    centre_Chrono300.append(
         {"Frame": frame,
          "Marker_Name": "Coude droit",
          "X": coord_Xd,
@@ -645,7 +622,7 @@ for frame in df_Chrono300["Frame"].unique():
     coord_Yg = df_gauche["Y"].mean()
     coord_Zg = df_gauche["Z"].mean()
     # On l'ajoute au centre du coude gauche
-    centre_coude_gauche_Chrono300.append(
+    centre_Chrono300.append(
         {"Frame": frame,
          "Marker_Name": "Coude gauche",
          "X": coord_Xg,
@@ -654,8 +631,6 @@ for frame in df_Chrono300["Frame"].unique():
     )
 
 # Calcul du centre articulaire du coude - Chrono350
-centre_coude_droit_Chrono350 = []
-centre_coude_gauche_Chrono350 = []
 
 for frame in df_Chrono350["Frame"].unique():
     df_droite = df_Chrono350[(df_Chrono350["Marker_Name"].isin(utiles_coude_droit)) &
@@ -667,7 +642,7 @@ for frame in df_Chrono350["Frame"].unique():
     coord_Yd = df_droite["Y"].mean()
     coord_Zd = df_droite["Z"].mean()
     # On l'ajoute au centre du coude droit
-    centre_coude_droit_Chrono350.append(
+    centre_Chrono350.append(
         {"Frame": frame,
          "Marker_Name": "Coude droit",
          "X": coord_Xd,
@@ -679,7 +654,7 @@ for frame in df_Chrono350["Frame"].unique():
     coord_Yg = df_gauche["Y"].mean()
     coord_Zg = df_gauche["Z"].mean()
     # On l'ajoute au centre du coude gauche
-    centre_coude_gauche_Chrono350.append(
+    centre_Chrono350.append(
         {"Frame": frame,
          "Marker_Name": "Coude gauche",
          "X": coord_Xg,
@@ -688,8 +663,6 @@ for frame in df_Chrono350["Frame"].unique():
     )
 
 # Calcul du centre articulaire du coude - Route250
-centre_coude_droit_Route250 = []
-centre_coude_gauche_Route250 = []
 
 for frame in df_Route250["Frame"].unique():
     df_droite = df_Route250[(df_Route250["Marker_Name"].isin(utiles_coude_droit)) &
@@ -701,7 +674,7 @@ for frame in df_Route250["Frame"].unique():
     coord_Yd = df_droite["Y"].mean()
     coord_Zd = df_droite["Z"].mean()
     # On l'ajoute au centre du coude droit
-    centre_coude_droit_Route250.append(
+    centre_Route250.append(
         {"Frame": frame,
          "Marker_Name": "Coude droit",
          "X": coord_Xd,
@@ -713,7 +686,7 @@ for frame in df_Route250["Frame"].unique():
     coord_Yg = df_gauche["Y"].mean()
     coord_Zg = df_gauche["Z"].mean()
     # On l'ajoute au centre du coude gauche
-    centre_coude_gauche_Route250.append(
+    centre_Route250.append(
         {"Frame": frame,
          "Marker_Name": "Coude gauche",
          "X": coord_Xg,
@@ -721,8 +694,6 @@ for frame in df_Route250["Frame"].unique():
          "Z": coord_Zg})
 
 # Calcul du centre articulaire du coude - Route300
-centre_coude_droit_Route300 = []
-centre_coude_gauche_Route300 = []
 
 for frame in df_Route300["Frame"].unique():
     df_droite = df_Route300[(df_Route300["Marker_Name"].isin(utiles_coude_droit)) &
@@ -734,7 +705,7 @@ for frame in df_Route300["Frame"].unique():
     coord_Yd = df_droite["Y"].mean()
     coord_Zd = df_droite["Z"].mean()
     # On l'ajoute au centre du coude droit
-    centre_coude_droit_Route300.append(
+    centre_Route300.append(
         {"Frame": frame,
          "Marker_Name": "Coude droit",
          "X": coord_Xd,
@@ -746,7 +717,7 @@ for frame in df_Route300["Frame"].unique():
     coord_Yg = df_gauche["Y"].mean()
     coord_Zg = df_gauche["Z"].mean()
     # On l'ajoute au centre du coude gauche
-    centre_coude_gauche_Route300.append(
+    centre_Route300.append(
         {"Frame": frame,
          "Marker_Name": "Coude gauche",
          "X": coord_Xg,
@@ -755,8 +726,6 @@ for frame in df_Route300["Frame"].unique():
     )
 
 # Calcul du centre articulaire du coude - Route350
-centre_coude_droit_Route350 = []
-centre_coude_gauche_Route350 = []
 
 for frame in df_Route350["Frame"].unique():
     df_droite = df_Route350[(df_Route350["Marker_Name"].isin(utiles_coude_droit)) &
@@ -768,7 +737,7 @@ for frame in df_Route350["Frame"].unique():
     coord_Yd = df_droite["Y"].mean()
     coord_Zd = df_droite["Z"].mean()
     # On l'ajoute au centre du coude droit
-    centre_coude_droit_Route350.append(
+    centre_Route350.append(
         {"Frame": frame,
          "Marker_Name": "Coude droite",
          "X": coord_Xd,
@@ -780,59 +749,13 @@ for frame in df_Route350["Frame"].unique():
     coord_Yg = df_gauche["Y"].mean()
     coord_Zg = df_gauche["Z"].mean()
     # On l'ajoute au centre du coude gauche
-    centre_coude_gauche_Route350.append(
+    centre_Route350.append(
         {"Frame": frame,
          "Marker_Name": "Coude gauche",
          "X": coord_Xg,
          "Y": coord_Yg,
          "Z": coord_Zg}
     )
-
-###################################################################################################
-
-# On les convertit tous en dataframe
-df_centre_pelvis_chrono250 = pd.DataFrame(centre_pelvis_Chrono250)
-df_centre_pelvis_chrono300 = pd.DataFrame(centre_pelvis_Chrono300)
-df_centre_pelvis_chrono350 = pd.DataFrame(centre_pelvis_Chrono350)
-df_centre_pelvis_route250 = pd.DataFrame(centre_pelvis_Route250)
-df_centre_pelvis_route300 = pd.DataFrame(centre_pelvis_Route300)
-df_centre_pelvis_route350 = pd.DataFrame(centre_pelvis_Route350)
-df_centre_cheville_droite_chrono250 = pd.DataFrame(centre_cheville_droite_Chrono250)
-df_centre_cheville_droite_chrono300 = pd.DataFrame(centre_cheville_droite_Chrono350)
-df_centre_cheville_droite_chrono350 = pd.DataFrame(centre_cheville_droite_Chrono350)
-df_centre_cheville_gauche_chrono250 = pd.DataFrame(centre_cheville_gauche_Chrono250)
-df_centre_cheville_gauche_chrono300 = pd.DataFrame(centre_cheville_gauche_Chrono350)
-df_centre_cheville_gauche_chrono350 = pd.DataFrame(centre_cheville_gauche_Chrono350)
-df_centre_cheville_droite_route250 = pd.DataFrame(centre_cheville_droite_Route250)
-df_centre_cheville_droite_route300 = pd.DataFrame(centre_cheville_droite_Route350)
-df_centre_cheville_droite_route350 = pd.DataFrame(centre_cheville_droite_Route350)
-df_centre_cheville_gauche_route250 = pd.DataFrame(centre_cheville_gauche_Route250)
-df_centre_cheville_gauche_route300 = pd.DataFrame(centre_cheville_gauche_Route350)
-df_centre_cheville_gauche_route350 = pd.DataFrame(centre_cheville_gauche_Route350)
-df_centre_genou_droit_chrono250 = pd.DataFrame(centre_genou_droit_Chrono250)
-df_centre_genou_droit_chrono300 = pd.DataFrame(centre_genou_droit_Chrono350)
-df_centre_genou_droit_chrono350 = pd.DataFrame(centre_genou_droit_Chrono350)
-df_centre_genou_gauche_chrono250 = pd.DataFrame(centre_genou_gauche_Chrono250)
-df_centre_genou_gauche_chrono300 = pd.DataFrame(centre_genou_gauche_Chrono350)
-df_centre_genou_gauche_chrono350 = pd.DataFrame(centre_genou_gauche_Chrono350)
-df_centre_genou_droite_route250 = pd.DataFrame(centre_genou_droit_Route250)
-df_centre_genou_droite_route300 = pd.DataFrame(centre_genou_droit_Route350)
-df_centre_genou_droite_route350 = pd.DataFrame(centre_genou_droit_Route350)
-df_centre_genou_gauche_route250 = pd.DataFrame(centre_genou_gauche_Route250)
-df_centre_genou_gauche_route300 = pd.DataFrame(centre_genou_gauche_Route350)
-df_centre_genou_gauche_route350 = pd.DataFrame(centre_genou_gauche_Route350)
-df_centre_coude_droit_chrono250 = pd.DataFrame(centre_coude_droit_Chrono250)
-df_centre_coude_droit_chrono300 = pd.DataFrame(centre_coude_droit_Chrono350)
-df_centre_coude_droit_chrono350 = pd.DataFrame(centre_coude_droit_Chrono350)
-df_centre_coude_gauche_chrono250 = pd.DataFrame(centre_coude_gauche_Chrono250)
-df_centre_coude_gauche_chrono300 = pd.DataFrame(centre_coude_gauche_Chrono350)
-df_centre_coude_gauche_chrono350 = pd.DataFrame(centre_coude_gauche_Chrono350)
-df_centre_coude_droite_route250 = pd.DataFrame(centre_coude_droit_Route250)
-df_centre_coude_droite_route300 = pd.DataFrame(centre_coude_droit_Route350)
-df_centre_coude_droite_route350 = pd.DataFrame(centre_coude_droit_Route350)
-df_centre_coude_gauche_route250 = pd.DataFrame(centre_coude_gauche_Route250)
-df_centre_coude_gauche_route300 = pd.DataFrame(centre_coude_gauche_Route350)
-df_centre_coude_gauche_route350 = pd.DataFrame(centre_coude_gauche_Route350)
 
 ###############################################################################################
 
@@ -1050,12 +973,24 @@ df_d_Route350 = pd.DataFrame(d_Route350)
 
 ################################################################################################
 
+# On convertit les listes en dataframe
+
+df_Chrono250 = pd.DataFrame(centre_Chrono250)
+df_Chrono300 = pd.DataFrame(centre_Chrono300)
+df_Chrono350 = pd.DataFrame(centre_Chrono350)
+df_Route250 = pd.DataFrame(centre_Route250)
+df_Route300 = pd.DataFrame(centre_Route300)
+df_Route350 = pd.DataFrame(centre_Route350)
+
+################################################################################################
+
 # Calcul centre hanche - Chrono250
 centre_hanche_droit_Chrono250 = []
 centre_hanche_gauche_Chrono250 = []
 
 for frame in df_Chrono250["Frame"].unique():
-    df_centre_pelvis_frame = df_centre_pelvis_chrono250[df_centre_pelvis_chrono250["Frame"] == frame]
+    df_centre_pelvis_frame = df_Chrono250[df_Chrono250["Frame"] == frame &
+                                          df_Chrono250["Marker_Name"] == "Pelvis"]
     df_d_Chrono250_frame = df_d_Chrono250[df_d_Chrono250["Frame"] == frame]
     df_w_Chrono250_frame = df_w_Chrono250[df_w_Chrono250["Frame"] == frame]
 
@@ -1077,7 +1012,7 @@ for frame in df_Chrono250["Frame"].unique():
             "Z": coord_Z_gauche,
         }
     )
-    centre_hanche_gauche_Chrono250.append(
+    centre_hanche_droit_Chrono250.append(
         {"Frame": frame,
          "Marker_Name": "Hanche droite",
          "X": coord_X_droit,
@@ -1089,7 +1024,8 @@ centre_hanche_droit_Chrono300 = []
 centre_hanche_gauche_Chrono300 = []
 
 for frame in df_Chrono300["Frame"].unique():
-    df_centre_pelvis_frame = df_centre_pelvis_chrono300[df_centre_pelvis_chrono300["Frame"] == frame]
+    df_centre_pelvis_frame = df_Chrono300[df_Chrono300["Frame"] == frame &
+                                          df_Chrono300["Marker_Name"] == "Pelvis"]
     df_d_Chrono300_frame = df_d_Chrono300[df_d_Chrono300["Frame"] == frame]
     df_w_Chrono300_frame = df_w_Chrono300[df_w_Chrono300["Frame"] == frame]
 
@@ -1111,7 +1047,7 @@ for frame in df_Chrono300["Frame"].unique():
             "Z": coord_Z_gauche,
         }
     )
-    centre_hanche_gauche_Chrono300.append(
+    centre_hanche_droit_Chrono300.append(
         {"Frame": frame,
          "Marker_Name": "Hanche droite",
          "X": coord_X_droit,
@@ -1123,7 +1059,8 @@ centre_hanche_droit_Chrono350 = []
 centre_hanche_gauche_Chrono350 = []
 
 for frame in df_Chrono350["Frame"].unique():
-    df_centre_pelvis_frame = df_centre_pelvis_chrono350[df_centre_pelvis_chrono350["Frame"] == frame]
+    df_centre_pelvis_frame = df_Chrono350[df_Chrono350["Frame"] == frame &
+                                          df_Chrono350["Marker_Name"] == "Pelvis"]
     df_d_Chrono350_frame = df_d_Chrono350[df_d_Chrono350["Frame"] == frame]
     df_w_Chrono350_frame = df_w_Chrono350[df_w_Chrono350["Frame"] == frame]
 
@@ -1145,7 +1082,7 @@ for frame in df_Chrono350["Frame"].unique():
             "Z": coord_Z_gauche,
         }
     )
-    centre_hanche_gauche_Chrono350.append(
+    centre_hanche_droit_Chrono350.append(
         {"Frame": frame,
          "Marker_Name": "Hanche droite",
          "X": coord_X_droit,
@@ -1157,7 +1094,8 @@ centre_hanche_droit_Route250 = []
 centre_hanche_gauche_Route250 = []
 
 for frame in df_Route250["Frame"].unique():
-    df_centre_pelvis_frame = df_centre_pelvis_route250[df_centre_pelvis_route250["Frame"] == frame]
+    df_centre_pelvis_frame = df_Route250[df_Route250["Frame"] == frame &
+                                         df_Route250["Marker_Name"] == "Pelvis"]
     df_d_Route250_frame = df_d_Route250[df_d_Route250["Frame"] == frame]
     df_w_Route250_frame = df_w_Route250[df_w_Route250["Frame"] == frame]
 
@@ -1179,7 +1117,7 @@ for frame in df_Route250["Frame"].unique():
             "Z": coord_Z_gauche,
         }
     )
-    centre_hanche_gauche_Route250.append(
+    centre_hanche_droit_Route250.append(
         {"Frame": frame,
          "Marker_Name": "Hanche droite",
          "X": coord_X_droit,
@@ -1191,7 +1129,8 @@ centre_hanche_droit_Route300 = []
 centre_hanche_gauche_Route300 = []
 
 for frame in df_Route300["Frame"].unique():
-    df_centre_pelvis_frame = df_centre_pelvis_route300[df_centre_pelvis_route300["Frame"] == frame]
+    df_centre_pelvis_frame = df_Route300[df_Route300["Frame"] == frame &
+                                         df_Route300["Marker_Name"] == "Pelvis"]
     df_d_Route300_frame = df_d_Route300[df_d_Route300["Frame"] == frame]
     df_w_Route300_frame = df_w_Route300[df_w_Route300["Frame"] == frame]
 
@@ -1213,7 +1152,7 @@ for frame in df_Route300["Frame"].unique():
             "Z": coord_Z_gauche,
         }
     )
-    centre_hanche_gauche_Route300.append(
+    centre_hanche_droit_Route300.append(
         {"Frame": frame,
          "Marker_Name": "Hanche droite",
          "X": coord_X_droit,
@@ -1225,7 +1164,8 @@ centre_hanche_droit_Route350 = []
 centre_hanche_gauche_Route350 = []
 
 for frame in df_Route350["Frame"].unique():
-    df_centre_pelvis_frame = df_centre_pelvis_route350[df_centre_pelvis_route350["Frame"] == frame]
+    df_centre_pelvis_frame = df_Route350[df_Route350["Frame"] == frame &
+                                         df_Route350["Marker_Name"] == "Pelvis"]
     df_d_Route350_frame = df_d_Route350[df_d_Route350["Frame"] == frame]
     df_w_Route350_frame = df_w_Route350[df_w_Route350["Frame"] == frame]
 
@@ -1247,7 +1187,7 @@ for frame in df_Route350["Frame"].unique():
             "Z": coord_Z_gauche,
         }
     )
-    centre_hanche_gauche_Route350.append(
+    centre_hanche_droit_Route350.append(
         {"Frame": frame,
          "Marker_Name": "Hanche droite",
          "X": coord_X_droit,
@@ -1267,3 +1207,49 @@ df_centre_hanche_droite_route300 = pd.DataFrame(centre_hanche_droit_Route300)
 df_centre_hanche_gauche_route300 = pd.DataFrame(centre_hanche_gauche_Route300)
 df_centre_hanche_droite_route350 = pd.DataFrame(centre_hanche_droit_Route350)
 df_centre_hanche_gauche_route350 = pd.DataFrame(centre_hanche_gauche_Route350)
+
+#######################################################################################
+
+# On concatène les tableaux ainsi obtenus avec les tableaux précédents
+
+df_chrono250 = (
+    pd.concat([df_Chrono250, df_centre_hanche_gauche_chrono250, df_centre_hanche_droite_chrono250],
+              ignore_index=True)
+    .sort_values(by="Frame")
+    .reset_index(drop=True)
+)
+
+df_chrono300 = (
+    pd.concat([df_Chrono300, df_centre_hanche_gauche_chrono300, df_centre_hanche_droite_chrono300],
+              ignore_index=True)
+    .sort_values(by="Frame")
+    .reset_index(drop=True)
+)
+
+df_chrono350 = (
+    pd.concat([df_Chrono350, df_centre_hanche_gauche_chrono350, df_centre_hanche_droite_chrono350],
+              ignore_index=True)
+    .sort_values(by="Frame")
+    .reset_index(drop=True)
+)
+
+df_route250 = (
+    pd.concat([df_Route250, df_centre_hanche_gauche_route250, df_centre_hanche_droite_route250],
+              ignore_index=True)
+    .sort_values(by="Frame")
+    .reset_index(drop=True)
+)
+
+df_route300 = (
+    pd.concat([df_Route300, df_centre_hanche_gauche_route300, df_centre_hanche_droite_route300],
+              ignore_index=True)
+    .sort_values(by="Frame")
+    .reset_index(drop=True)
+)
+
+df_route350 = (
+    pd.concat([df_Route350, df_centre_hanche_gauche_route350, df_centre_hanche_droite_route350],
+              ignore_index=True)
+    .sort_values(by="Frame")
+    .reset_index(drop=True)
+)
