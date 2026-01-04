@@ -989,8 +989,8 @@ centre_hanche_droit_Chrono250 = []
 centre_hanche_gauche_Chrono250 = []
 
 for frame in df_Chrono250["Frame"].unique():
-    df_centre_pelvis_frame = df_Chrono250[df_Chrono250["Frame"] == frame &
-                                          df_Chrono250["Marker_Name"] == "Pelvis"]
+    df_centre_pelvis_frame = df_Chrono250[(df_Chrono250["Frame"] == frame) &
+                                          (df_Chrono250["Marker_Name"] == "Pelvis")]
     df_d_Chrono250_frame = df_d_Chrono250[df_d_Chrono250["Frame"] == frame]
     df_w_Chrono250_frame = df_w_Chrono250[df_w_Chrono250["Frame"] == frame]
 
@@ -1024,8 +1024,8 @@ centre_hanche_droit_Chrono300 = []
 centre_hanche_gauche_Chrono300 = []
 
 for frame in df_Chrono300["Frame"].unique():
-    df_centre_pelvis_frame = df_Chrono300[df_Chrono300["Frame"] == frame &
-                                          df_Chrono300["Marker_Name"] == "Pelvis"]
+    df_centre_pelvis_frame = df_Chrono300[(df_Chrono300["Frame"] == frame) &
+                                          (df_Chrono300["Marker_Name"] == "Pelvis")]
     df_d_Chrono300_frame = df_d_Chrono300[df_d_Chrono300["Frame"] == frame]
     df_w_Chrono300_frame = df_w_Chrono300[df_w_Chrono300["Frame"] == frame]
 
@@ -1059,8 +1059,8 @@ centre_hanche_droit_Chrono350 = []
 centre_hanche_gauche_Chrono350 = []
 
 for frame in df_Chrono350["Frame"].unique():
-    df_centre_pelvis_frame = df_Chrono350[df_Chrono350["Frame"] == frame &
-                                          df_Chrono350["Marker_Name"] == "Pelvis"]
+    df_centre_pelvis_frame = df_Chrono350[(df_Chrono350["Frame"] == frame) &
+                                          (df_Chrono350["Marker_Name"] == "Pelvis")]
     df_d_Chrono350_frame = df_d_Chrono350[df_d_Chrono350["Frame"] == frame]
     df_w_Chrono350_frame = df_w_Chrono350[df_w_Chrono350["Frame"] == frame]
 
@@ -1094,8 +1094,8 @@ centre_hanche_droit_Route250 = []
 centre_hanche_gauche_Route250 = []
 
 for frame in df_Route250["Frame"].unique():
-    df_centre_pelvis_frame = df_Route250[df_Route250["Frame"] == frame &
-                                         df_Route250["Marker_Name"] == "Pelvis"]
+    df_centre_pelvis_frame = df_Route250[(df_Route250["Frame"] == frame) &
+                                         (df_Route250["Marker_Name"] == "Pelvis")]
     df_d_Route250_frame = df_d_Route250[df_d_Route250["Frame"] == frame]
     df_w_Route250_frame = df_w_Route250[df_w_Route250["Frame"] == frame]
 
@@ -1129,8 +1129,8 @@ centre_hanche_droit_Route300 = []
 centre_hanche_gauche_Route300 = []
 
 for frame in df_Route300["Frame"].unique():
-    df_centre_pelvis_frame = df_Route300[df_Route300["Frame"] == frame &
-                                         df_Route300["Marker_Name"] == "Pelvis"]
+    df_centre_pelvis_frame = df_Route300[(df_Route300["Frame"] == frame) &
+                                         (df_Route300["Marker_Name"] == "Pelvis")]
     df_d_Route300_frame = df_d_Route300[df_d_Route300["Frame"] == frame]
     df_w_Route300_frame = df_w_Route300[df_w_Route300["Frame"] == frame]
 
@@ -1164,8 +1164,8 @@ centre_hanche_droit_Route350 = []
 centre_hanche_gauche_Route350 = []
 
 for frame in df_Route350["Frame"].unique():
-    df_centre_pelvis_frame = df_Route350[df_Route350["Frame"] == frame &
-                                         df_Route350["Marker_Name"] == "Pelvis"]
+    df_centre_pelvis_frame = df_Route350[(df_Route350["Frame"] == frame) &
+                                         (df_Route350["Marker_Name"] == "Pelvis")]
     df_d_Route350_frame = df_d_Route350[df_d_Route350["Frame"] == frame]
     df_w_Route350_frame = df_w_Route350[df_w_Route350["Frame"] == frame]
 

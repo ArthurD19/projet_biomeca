@@ -148,7 +148,7 @@ for frame in range(1, max(df_Chrono250_complet["Frame"]) + 1):
 
     coord_x_coude_d = df_frame_i[df_frame_i["Marker_Name"] == "Coude droit"]["X"]
     coord_y_coude_d = df_frame_i[df_frame_i["Marker_Name"] == "Coude droit"]["Y"]
-    coord_z_coude_d = df_frame_i[df_frame_i["Marker_Name"] == "COude droit"]["Z"]
+    coord_z_coude_d = df_frame_i[df_frame_i["Marker_Name"] == "Coude droit"]["Z"]
     coord_coude_d = {
         "X": float(coord_x_coude_d.iloc[0]),
         "Y": float(coord_y_coude_d.iloc[0]),
@@ -167,6 +167,15 @@ for frame in range(1, max(df_Chrono250_complet["Frame"]) + 1):
     coord_x_hanche_d = df_frame_i[df_frame_i["Marker_Name"] == "Hanche droite"]["X"]
     coord_y_hanche_d = df_frame_i[df_frame_i["Marker_Name"] == "Hanche droite"]["Y"]
     coord_z_hanche_d = df_frame_i[df_frame_i["Marker_Name"] == "Hanche droite"]["Z"]
+
+    print("HANCHE DROITE")
+    print(df_frame_i[df_frame_i["Marker_Name"] == "Hanche droite"])
+    print(df_frame_i[df_frame_i["Marker_Name"] == "Hanche droite"].dtypes)
+
+    print("Valeur Y brute :")
+    print(coord_y_hanche_d.iloc[0])
+    print("Type :", type(coord_y_hanche_d.iloc[0]))
+
     coord_hanche_d = {
         "X": float(coord_x_hanche_d.iloc[0]),
         "Y": float(coord_y_hanche_d.iloc[0]),
@@ -273,7 +282,7 @@ for frame in range(1, max(df_Chrono250_complet["Frame"]) + 1):
     df_angles_Chrono250.loc[len(df_angles_Chrono250)] = {
         "Frame": frame,
         "Articulation": "Genou gauche",
-        "Angle": angle_genou gauche,
+        "Angle": angle_genou_gauche,
     }
 
     df_angles_Chrono250.loc[len(df_angles_Chrono250)] = {
@@ -338,7 +347,7 @@ for frame in range(1, max(df_Chrono300_complet["Frame"]) + 1):
 
     coord_x_coude_d = df_frame_i[df_frame_i["Marker_Name"] == "Coude droit"]["X"]
     coord_y_coude_d = df_frame_i[df_frame_i["Marker_Name"] == "Coude droit"]["Y"]
-    coord_z_coude_d = df_frame_i[df_frame_i["Marker_Name"] == "COude droit"]["Z"]
+    coord_z_coude_d = df_frame_i[df_frame_i["Marker_Name"] == "Coude droit"]["Z"]
     coord_coude_d = {
         "X": float(coord_x_coude_d.iloc[0]),
         "Y": float(coord_y_coude_d.iloc[0]),
@@ -463,7 +472,7 @@ for frame in range(1, max(df_Chrono300_complet["Frame"]) + 1):
     df_angles_Chrono300.loc[len(df_angles_Chrono300)] = {
         "Frame": frame,
         "Articulation": "Genou gauche",
-        "Angle": angle_genou gauche,
+        "Angle": angle_genou_gauche,
     }
 
     df_angles_Chrono300.loc[len(df_angles_Chrono300)] = {
@@ -528,7 +537,7 @@ for frame in range(1, max(df_Chrono350_complet["Frame"]) + 1):
 
     coord_x_coude_d = df_frame_i[df_frame_i["Marker_Name"] == "Coude droit"]["X"]
     coord_y_coude_d = df_frame_i[df_frame_i["Marker_Name"] == "Coude droit"]["Y"]
-    coord_z_coude_d = df_frame_i[df_frame_i["Marker_Name"] == "COude droit"]["Z"]
+    coord_z_coude_d = df_frame_i[df_frame_i["Marker_Name"] == "Coude droit"]["Z"]
     coord_coude_d = {
         "X": float(coord_x_coude_d.iloc[0]),
         "Y": float(coord_y_coude_d.iloc[0]),
@@ -653,7 +662,7 @@ for frame in range(1, max(df_Chrono350_complet["Frame"]) + 1):
     df_angles_Chrono350.loc[len(df_angles_Chrono250)] = {
         "Frame": frame,
         "Articulation": "Genou gauche",
-        "Angle": angle_genou gauche,
+        "Angle": angle_genou_gauche,
     }
 
     df_angles_Chrono350.loc[len(df_angles_Chrono250)] = {
@@ -718,7 +727,7 @@ for frame in range(1, max(df_Route250_complet["Frame"]) + 1):
 
     coord_x_coude_d = df_frame_i[df_frame_i["Marker_Name"] == "Coude droit"]["X"]
     coord_y_coude_d = df_frame_i[df_frame_i["Marker_Name"] == "Coude droit"]["Y"]
-    coord_z_coude_d = df_frame_i[df_frame_i["Marker_Name"] == "COude droit"]["Z"]
+    coord_z_coude_d = df_frame_i[df_frame_i["Marker_Name"] == "Coude droit"]["Z"]
     coord_coude_d = {
         "X": float(coord_x_coude_d.iloc[0]),
         "Y": float(coord_y_coude_d.iloc[0]),
@@ -843,7 +852,7 @@ for frame in range(1, max(df_Route250_complet["Frame"]) + 1):
     df_angles_Route250.loc[len(df_angles_Chrono250)] = {
         "Frame": frame,
         "Articulation": "Genou gauche",
-        "Angle": angle_genou gauche,
+        "Angle": angle_genou_gauche,
     }
 
     df_angles_Route250.loc[len(df_angles_Chrono250)] = {
@@ -908,7 +917,7 @@ for frame in range(1, max(df_Route300_complet["Frame"]) + 1):
 
     coord_x_coude_d = df_frame_i[df_frame_i["Marker_Name"] == "Coude droit"]["X"]
     coord_y_coude_d = df_frame_i[df_frame_i["Marker_Name"] == "Coude droit"]["Y"]
-    coord_z_coude_d = df_frame_i[df_frame_i["Marker_Name"] == "COude droit"]["Z"]
+    coord_z_coude_d = df_frame_i[df_frame_i["Marker_Name"] == "Coude droit"]["Z"]
     coord_coude_d = {
         "X": float(coord_x_coude_d.iloc[0]),
         "Y": float(coord_y_coude_d.iloc[0]),
@@ -1033,7 +1042,7 @@ for frame in range(1, max(df_Route300_complet["Frame"]) + 1):
     df_angles_Route300.loc[len(df_angles_Chrono250)] = {
         "Frame": frame,
         "Articulation": "Genou gauche",
-        "Angle": angle_genou gauche,
+        "Angle": angle_genou_gauche,
     }
 
     df_angles_Route300.loc[len(df_angles_Chrono250)] = {
@@ -1098,7 +1107,7 @@ for frame in range(1, max(df_Route350_complet["Frame"]) + 1):
 
     coord_x_coude_d = df_frame_i[df_frame_i["Marker_Name"] == "Coude droit"]["X"]
     coord_y_coude_d = df_frame_i[df_frame_i["Marker_Name"] == "Coude droit"]["Y"]
-    coord_z_coude_d = df_frame_i[df_frame_i["Marker_Name"] == "COude droit"]["Z"]
+    coord_z_coude_d = df_frame_i[df_frame_i["Marker_Name"] == "Coude droit"]["Z"]
     coord_coude_d = {
         "X": float(coord_x_coude_d.iloc[0]),
         "Y": float(coord_y_coude_d.iloc[0]),
@@ -1223,7 +1232,7 @@ for frame in range(1, max(df_Route350_complet["Frame"]) + 1):
     df_angles_Route350.loc[len(df_angles_Chrono250)] = {
         "Frame": frame,
         "Articulation": "Genou gauche",
-        "Angle": angle_genou gauche,
+        "Angle": angle_genou_gauche,
     }
 
     df_angles_Route350.loc[len(df_angles_Chrono250)] = {
