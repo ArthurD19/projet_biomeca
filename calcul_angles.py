@@ -62,7 +62,7 @@ df_Route250_utiles = df_Route250[df_Route250["Marker_Name"].isin(liste_points_ut
 df_Route300_utiles = df_Route300[df_Route300["Marker_Name"].isin(liste_points_utiles)]
 df_Route350_utiles = df_Route350[df_Route350["Marker_Name"].isin(liste_points_utiles)]
 
-# On crée les dataframe complets 
+# On crée les dataframe complets
 df_Chrono250_complet = (
     pd.concat([df_Chrono250_utiles, df_chrono250], ignore_index=True)
     .sort_values(by="Frame")
@@ -98,6 +98,13 @@ df_Route350_complet = (
     .sort_values(by="Frame")
     .reset_index(drop=True)
 )
+
+df_Chrono250_complet = df_Chrono250_complet.loc[:, ~df_Chrono250_complet.columns.duplicated()]
+df_Chrono300_complet = df_Chrono300_complet.loc[:, ~df_Chrono300_complet.columns.duplicated()]
+df_Chrono350_complet = df_Chrono350_complet.loc[:, ~df_Chrono350_complet.columns.duplicated()]
+df_Route250_complet = df_Route250_complet.loc[:, ~df_Route250_complet.columns.duplicated()]
+df_Route300_complet = df_Route300_complet.loc[:, ~df_Route300_complet.columns.duplicated()]
+df_Route350_complet = df_Route350_complet.loc[:, ~df_Route350_complet.columns.duplicated()]
 
 #####################################################################################
 
@@ -167,15 +174,6 @@ for frame in range(1, max(df_Chrono250_complet["Frame"]) + 1):
     coord_x_hanche_d = df_frame_i[df_frame_i["Marker_Name"] == "Hanche droite"]["X"]
     coord_y_hanche_d = df_frame_i[df_frame_i["Marker_Name"] == "Hanche droite"]["Y"]
     coord_z_hanche_d = df_frame_i[df_frame_i["Marker_Name"] == "Hanche droite"]["Z"]
-
-    print("HANCHE DROITE")
-    print(df_frame_i[df_frame_i["Marker_Name"] == "Hanche droite"])
-    print(df_frame_i[df_frame_i["Marker_Name"] == "Hanche droite"].dtypes)
-
-    print("Valeur Y brute :")
-    print(coord_y_hanche_d.iloc[0])
-    print("Type :", type(coord_y_hanche_d.iloc[0]))
-
     coord_hanche_d = {
         "X": float(coord_x_hanche_d.iloc[0]),
         "Y": float(coord_y_hanche_d.iloc[0]),

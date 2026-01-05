@@ -56,9 +56,9 @@ utiles_genou_gauche = ["pLeftKneeLatEpicondyle", "pLeftKneeMedEpicondyle"]
 utiles_pelvis = ["pRightASI", "pLeftASI"]
 utiles_d_w = ["pRightASI", "pLeftASI", "pRightCSI", "pLeftCSI"]
 
-##################################################################################################
+########################################################################################
 
-# On initialise les tableaux des centres articulaires 
+# On initialise les tableaux des centres articulaires
 
 centre_Chrono250 = []
 centre_Chrono300 = []
@@ -67,7 +67,16 @@ centre_Route250 = []
 centre_Route300 = []
 centre_Route350 = []
 
-##################################################################################################
+########################################################################################
+
+# Fonctions utiles
+
+def as_float(val):
+    if isinstance(val, (pd.Series, pd.DataFrame)):
+        return float(val.values[0])  # prend le premier élément
+    return float(val)
+
+########################################################################################
 
 # Calcul pour le pelvis -Chrono250
 
@@ -546,7 +555,7 @@ for frame in df_Route350["Frame"].unique():
     # On l'ajoute au centre du genou droit
     centre_Route350.append(
         {"Frame": frame,
-         "Marker_Name": "Genou droite",
+         "Marker_Name": "Genou droit",
          "X": coord_Xd,
          "Y": coord_Yd,
          "Z": coord_Zd}
@@ -564,7 +573,7 @@ for frame in df_Route350["Frame"].unique():
          "Z": coord_Zg}
     )
 
-###############################################################################################
+########################################################################################
 
 # Calcul du centre articulaire du coude - Chrono250
 
@@ -739,7 +748,7 @@ for frame in df_Route350["Frame"].unique():
     # On l'ajoute au centre du coude droit
     centre_Route350.append(
         {"Frame": frame,
-         "Marker_Name": "Coude droite",
+         "Marker_Name": "Coude droit",
          "X": coord_Xd,
          "Y": coord_Yd,
          "Z": coord_Zd}
@@ -757,7 +766,7 @@ for frame in df_Route350["Frame"].unique():
          "Z": coord_Zg}
     )
 
-###############################################################################################
+########################################################################################
 
 # Calcul de d et w - Chrono250
 w_Chrono250 = []
@@ -767,7 +776,11 @@ for frame in df_Chrono250["Frame"].unique():
     df_droite = df_Chrono250[(df_Chrono250["Marker_Name"].isin(utiles_d_w)) &
                              (df_Chrono250["Frame"] == frame)]
     # Calcul de w
-    w = df_droite[df_droite["Marker_Name"] == "pRightASI"] - df_droite[df_droite["Marker_Name"] == "pLeftASI"]
+    df_rightASI = df_droite[df_droite["Marker_Name"] == "pRightASI"]
+    df_leftASI = df_droite[df_droite["Marker_Name"] == "pLeftASI"]
+    x_r, y_r, z_r = df_rightASI[["X","Y","Z"]].iloc[0]
+    x_l, y_l, z_l = df_leftASI[["X","Y","Z"]].iloc[0]
+    w = np.sqrt((x_r - x_l)**2 + (y_r - y_l)**2 + (z_r - z_l)**2)
     # Calcul de d
     centre_1_x = ((df_droite[df_droite["Marker_Name"] == "pRightASI"]["X"].values[0]) +
                   (df_droite[df_droite["Marker_Name"] == "pLeftASI"]["X"].values[0])) / 2
@@ -804,7 +817,11 @@ for frame in df_Chrono300["Frame"].unique():
     df_droite = df_Chrono300[(df_Chrono300["Marker_Name"].isin(utiles_d_w)) &
                              (df_Chrono300["Frame"] == frame)]
     # Calcul de w
-    w = df_droite[df_droite["Marker_Name"] == "pRightASI"] - df_droite[df_droite["Marker_Name"] == "pLeftASI"]
+    df_rightASI = df_droite[df_droite["Marker_Name"] == "pRightASI"]
+    df_leftASI = df_droite[df_droite["Marker_Name"] == "pLeftASI"]
+    x_r, y_r, z_r = df_rightASI[["X","Y","Z"]].iloc[0]
+    x_l, y_l, z_l = df_leftASI[["X","Y","Z"]].iloc[0]
+    w = np.sqrt((x_r - x_l)**2 + (y_r - y_l)**2 + (z_r - z_l)**2)
     # Calcul de d
     centre_1_x = ((df_droite[df_droite["Marker_Name"] == "pRightASI"]["X"].values[0]) +
                   (df_droite[df_droite["Marker_Name"] == "pLeftASI"]["X"].values[0])) / 2
@@ -841,7 +858,11 @@ for frame in df_Chrono350["Frame"].unique():
     df_droite = df_Chrono350[(df_Chrono350["Marker_Name"].isin(utiles_d_w)) &
                              (df_Chrono350["Frame"] == frame)]
     # Calcul de w
-    w = df_droite[df_droite["Marker_Name"] == "pRightASI"] - df_droite[df_droite["Marker_Name"] == "pLeftASI"]
+    df_rightASI = df_droite[df_droite["Marker_Name"] == "pRightASI"]
+    df_leftASI = df_droite[df_droite["Marker_Name"] == "pLeftASI"]
+    x_r, y_r, z_r = df_rightASI[["X","Y","Z"]].iloc[0]
+    x_l, y_l, z_l = df_leftASI[["X","Y","Z"]].iloc[0]
+    w = np.sqrt((x_r - x_l)**2 + (y_r - y_l)**2 + (z_r - z_l)**2)
     # Calcul de d
     centre_1_x = ((df_droite[df_droite["Marker_Name"] == "pRightASI"]["X"].values[0]) +
                   (df_droite[df_droite["Marker_Name"] == "pLeftASI"]["X"].values[0])) / 2
@@ -878,7 +899,11 @@ for frame in df_Route250["Frame"].unique():
     df_droite = df_Route250[(df_Route250["Marker_Name"].isin(utiles_d_w)) &
                             (df_Route250["Frame"] == frame)]
     # Calcul de w
-    w = df_droite[df_droite["Marker_Name"] == "pRightASI"] - df_droite[df_droite["Marker_Name"] == "pLeftASI"]
+    df_rightASI = df_droite[df_droite["Marker_Name"] == "pRightASI"]
+    df_leftASI = df_droite[df_droite["Marker_Name"] == "pLeftASI"]
+    x_r, y_r, z_r = df_rightASI[["X","Y","Z"]].iloc[0]
+    x_l, y_l, z_l = df_leftASI[["X","Y","Z"]].iloc[0]
+    w = np.sqrt((x_r - x_l)**2 + (y_r - y_l)**2 + (z_r - z_l)**2)
     # Calcul de d
     centre_1_x = ((df_droite[df_droite["Marker_Name"] == "pRightASI"]["X"].values[0]) +
                   (df_droite[df_droite["Marker_Name"] == "pLeftASI"]["X"].values[0])) / 2
@@ -907,7 +932,11 @@ for frame in df_Route300["Frame"].unique():
     df_droite = df_Route300[(df_Route300["Marker_Name"].isin(utiles_d_w)) &
                             (df_Route300["Frame"] == frame)]
     # Calcul de w
-    w = df_droite[df_droite["Marker_Name"] == "pRightASI"] - df_droite[df_droite["Marker_Name"] == "pLeftASI"]
+    df_rightASI = df_droite[df_droite["Marker_Name"] == "pRightASI"]
+    df_leftASI = df_droite[df_droite["Marker_Name"] == "pLeftASI"]
+    x_r, y_r, z_r = df_rightASI[["X","Y","Z"]].iloc[0]
+    x_l, y_l, z_l = df_leftASI[["X","Y","Z"]].iloc[0]
+    w = np.sqrt((x_r - x_l)**2 + (y_r - y_l)**2 + (z_r - z_l)**2)
     # Calcul de d
     centre_1_x = ((df_droite[df_droite["Marker_Name"] == "pRightASI"]["X"].values[0]) +
                   (df_droite[df_droite["Marker_Name"] == "pLeftASI"]["X"].values[0])) / 2
@@ -936,7 +965,11 @@ for frame in df_Route350["Frame"].unique():
     df_droite = df_Route350[(df_Route350["Marker_Name"].isin(utiles_d_w)) &
                             (df_Route350["Frame"] == frame)]
     # Calcul de w
-    w = df_droite[df_droite["Marker_Name"] == "pRightASI"] - df_droite[df_droite["Marker_Name"] == "pLeftASI"]
+    df_rightASI = df_droite[df_droite["Marker_Name"] == "pRightASI"]
+    df_leftASI = df_droite[df_droite["Marker_Name"] == "pLeftASI"]
+    x_r, y_r, z_r = df_rightASI[["X","Y","Z"]].iloc[0]
+    x_l, y_l, z_l = df_leftASI[["X","Y","Z"]].iloc[0]
+    w = np.sqrt((x_r - x_l)**2 + (y_r - y_l)**2 + (z_r - z_l)**2)
     # Calcul de d
     centre_1_x = ((df_droite[df_droite["Marker_Name"] == "pRightASI"]["X"].values[0]) +
                   (df_droite[df_droite["Marker_Name"] == "pLeftASI"]["X"].values[0])) / 2
@@ -994,30 +1027,31 @@ for frame in df_Chrono250["Frame"].unique():
     df_d_Chrono250_frame = df_d_Chrono250[df_d_Chrono250["Frame"] == frame]
     df_w_Chrono250_frame = df_w_Chrono250[df_w_Chrono250["Frame"] == frame]
 
-    coord_X_gauche = df_centre_pelvis_frame["X"].values[0] - 0.3 * df_d_Chrono250_frame["D"].values[0]
+    coord_X_gauche = df_centre_pelvis_frame["X"].iloc[0] - 0.3 * df_d_Chrono250_frame["D"].iloc[0]
     coord_X_droit = coord_X_gauche
 
-    coord_Z_gauche = df_centre_pelvis_frame["Z"].values[0] - 0.35 * df_w_Chrono250_frame["W"].values[0]
+    coord_Z_gauche = df_centre_pelvis_frame["Z"].iloc[0] - 0.35 * df_w_Chrono250_frame["W"].iloc[0]
     coord_Z_droit = coord_Z_gauche
 
-    coord_Y_gauche = df_centre_pelvis_frame["Y"].values[0] + 0.19 * df_w_Chrono250_frame["W"].values[0]
-    coord_Y_droit = df_centre_pelvis_frame["Y"].values[0] - 0.19 * df_w_Chrono250_frame["W"].values[0]
+    coord_Y_gauche = df_centre_pelvis_frame["Y"].iloc[0] + 0.19 * df_w_Chrono250_frame["W"].iloc[0]
+    coord_Y_droit = df_centre_pelvis_frame["Y"].iloc[0] - 0.19 * df_w_Chrono250_frame["W"].iloc[0]
 
-    centre_hanche_gauche_Chrono250.append(
-        {
-            "Frame": frame,
-            "Marker_Name": "Hanche gauche",
-            "X": coord_X_gauche,
-            "Y": coord_Y_gauche,
-            "Z": coord_Z_gauche,
-        }
-    )
-    centre_hanche_droit_Chrono250.append(
-        {"Frame": frame,
-         "Marker_Name": "Hanche droite",
-         "X": coord_X_droit,
-         "Y": coord_Y_droit,
-         "Z": coord_Z_droit})
+    centre_hanche_droit_Chrono250.append({
+        "Frame": frame,
+        "Marker_Name": "Hanche droite",
+        "X": as_float(coord_X_droit),
+        "Y": as_float(coord_Y_droit),
+        "Z": as_float(coord_Z_droit),
+    })
+
+    centre_hanche_gauche_Chrono250.append({
+        "Frame": frame,
+        "Marker_Name": "Hanche gauche",
+        "X": as_float(coord_X_gauche),
+        "Y": as_float(coord_Y_gauche),
+        "Z": as_float(coord_Z_gauche),
+    })
+
 
 # Calcul centre hanche - Chrono300
 centre_hanche_droit_Chrono300 = []
@@ -1042,17 +1076,17 @@ for frame in df_Chrono300["Frame"].unique():
         {
             "Frame": frame,
             "Marker_Name": "Hanche gauche",
-            "X": coord_X_gauche,
-            "Y": coord_Y_gauche,
-            "Z": coord_Z_gauche,
+            "X": as_float(coord_X_gauche),
+            "Y": as_float(coord_Y_gauche),
+            "Z": as_float(coord_Z_gauche),
         }
     )
     centre_hanche_droit_Chrono300.append(
         {"Frame": frame,
          "Marker_Name": "Hanche droite",
-         "X": coord_X_droit,
-         "Y": coord_Y_droit,
-         "Z": coord_Z_droit})
+         "X": as_float(coord_X_droit),
+         "Y": as_float(coord_Y_droit),
+         "Z": as_float(coord_Z_droit)})
 
 # Calcul centre hanche - Chrono350
 centre_hanche_droit_Chrono350 = []
@@ -1077,17 +1111,17 @@ for frame in df_Chrono350["Frame"].unique():
         {
             "Frame": frame,
             "Marker_Name": "Hanche gauche",
-            "X": coord_X_gauche,
-            "Y": coord_Y_gauche,
-            "Z": coord_Z_gauche,
+            "X": as_float(coord_X_gauche),
+            "Y": as_float(coord_Y_gauche),
+            "Z": as_float(coord_Z_gauche),
         }
     )
     centre_hanche_droit_Chrono350.append(
         {"Frame": frame,
          "Marker_Name": "Hanche droite",
-         "X": coord_X_droit,
-         "Y": coord_Y_droit,
-         "Z": coord_Z_droit})
+         "X": as_float(coord_X_droit),
+         "Y": as_float(coord_Y_droit),
+         "Z": as_float(coord_Z_droit)})
 
 # Calcul centre hanche - Route250
 centre_hanche_droit_Route250 = []
@@ -1112,17 +1146,17 @@ for frame in df_Route250["Frame"].unique():
         {
             "Frame": frame,
             "Marker_Name": "Hanche gauche",
-            "X": coord_X_gauche,
-            "Y": coord_Y_gauche,
-            "Z": coord_Z_gauche,
+            "X": as_float(coord_X_gauche),
+            "Y": as_float(coord_Y_gauche),
+            "Z": as_float(coord_Z_gauche),
         }
     )
     centre_hanche_droit_Route250.append(
         {"Frame": frame,
          "Marker_Name": "Hanche droite",
-         "X": coord_X_droit,
-         "Y": coord_Y_droit,
-         "Z": coord_Z_droit})
+         "X": as_float(coord_X_droit),
+         "Y": as_float(coord_Y_droit),
+         "Z": as_float(coord_Z_droit)})
 
 # Calcul centre hanche - Route300
 centre_hanche_droit_Route300 = []
@@ -1147,17 +1181,17 @@ for frame in df_Route300["Frame"].unique():
         {
             "Frame": frame,
             "Marker_Name": "Hanche gauche",
-            "X": coord_X_gauche,
-            "Y": coord_Y_gauche,
-            "Z": coord_Z_gauche,
+            "X": as_float(coord_X_gauche),
+            "Y": as_float(coord_Y_gauche),
+            "Z": as_float(coord_Z_gauche),
         }
     )
     centre_hanche_droit_Route300.append(
         {"Frame": frame,
          "Marker_Name": "Hanche droite",
-         "X": coord_X_droit,
-         "Y": coord_Y_droit,
-         "Z": coord_Z_droit})
+         "X": as_float(coord_X_droit),
+         "Y": as_float(coord_Y_droit),
+         "Z": as_float(coord_Z_droit)})
 
 # Calcul centre hanche - Route350
 centre_hanche_droit_Route350 = []
@@ -1182,17 +1216,17 @@ for frame in df_Route350["Frame"].unique():
         {
             "Frame": frame,
             "Marker_Name": "Hanche gauche",
-            "X": coord_X_gauche,
-            "Y": coord_Y_gauche,
-            "Z": coord_Z_gauche,
+            "X": as_float(coord_X_gauche),
+            "Y": as_float(coord_Y_gauche),
+            "Z": as_float(coord_Z_gauche),
         }
     )
     centre_hanche_droit_Route350.append(
         {"Frame": frame,
          "Marker_Name": "Hanche droite",
-         "X": coord_X_droit,
-         "Y": coord_Y_droit,
-         "Z": coord_Z_droit})
+         "X": as_float(coord_X_droit),
+         "Y": as_float(coord_Y_droit),
+         "Z": as_float(coord_Z_droit)})
 
 # On les concertit en dataframe
 df_centre_hanche_droite_chrono250 = pd.DataFrame(centre_hanche_droit_Chrono250)
@@ -1253,3 +1287,10 @@ df_route350 = (
     .sort_values(by="Frame")
     .reset_index(drop=True)
 )
+
+df_chrono250 = df_chrono250.loc[:, ~df_chrono250.columns.duplicated()]
+df_chrono300 = df_chrono300.loc[:, ~df_chrono300.columns.duplicated()]
+df_chrono350 = df_chrono350.loc[:, ~df_chrono350.columns.duplicated()]
+df_route250 = df_route250.loc[:, ~df_route250.columns.duplicated()]
+df_route300 = df_route300.loc[:, ~df_route300.columns.duplicated()]
+df_route350 = df_route350.loc[:, ~df_route350.columns.duplicated()]
