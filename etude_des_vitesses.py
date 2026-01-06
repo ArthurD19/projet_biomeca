@@ -215,6 +215,7 @@ plt.ylabel("Vitesse angulaire max |ω|")
 plt.title("Genou droit – effet de la puissance")
 plt.legend()
 plt.grid(True)
+plt.savefig("résultats/effet puissance genou droit.png")
 plt.show()
 
 # puis le genou gauche
@@ -239,6 +240,7 @@ plt.ylabel("Vitesse angulaire max |ω|")
 plt.title("Genou gauche – effet de la puissance")
 plt.legend()
 plt.grid(True)
+plt.savefig("résultats/effet puissance genou gauche.png")
 plt.show()
 
 # Puis la hanche droite
@@ -263,6 +265,7 @@ plt.ylabel("Vitesse angulaire max |ω|")
 plt.title("Hanche droite – effet de la puissance")
 plt.legend()
 plt.grid(True)
+plt.savefig("résultats/effet puissance hanche droite.png")
 plt.show()
 
 # puis la hanche gauche
@@ -287,6 +290,7 @@ plt.ylabel("Vitesse angulaire max |ω|")
 plt.title("Hanche gauche – effet de la puissance")
 plt.legend()
 plt.grid(True)
+plt.savefig("résultats/effet puissance hanche gauche.png")
 plt.show()
 
 # Puis la cheville droite
@@ -311,6 +315,7 @@ plt.ylabel("Vitesse angulaire max |ω|")
 plt.title("Cheville droite – effet de la puissance")
 plt.legend()
 plt.grid(True)
+plt.savefig("résultats/effet puissance cheville droite.png")
 plt.show()
 
 # puis la cheville gauche
@@ -335,6 +340,7 @@ plt.ylabel("Vitesse angulaire max |ω|")
 plt.title("Cheville gauche – effet de la puissance")
 plt.legend()
 plt.grid(True)
+plt.savefig("résultats/effet puissance cheville gauche.png")
 plt.show()
 
 
@@ -364,6 +370,7 @@ plt.ylabel("Vitesse angulaire max |ω|")
 plt.title("Epaule droite – effet de la puissance")
 plt.legend()
 plt.grid(True)
+plt.savefig("résultats/effet puissance epaule droite.png")
 plt.show()
 
 # puis le max pour l'épaule gauche
@@ -388,6 +395,7 @@ plt.ylabel("Vitesse angulaire max |ω|")
 plt.title("Epaule gauche – effet de la puissance")
 plt.legend()
 plt.grid(True)
+plt.savefig("résultats/effet puissance epaule gauche.png")
 plt.show()
 
 # On passe ensuite à la moyenne pour l'épaule droite
@@ -412,6 +420,7 @@ plt.ylabel("Vitesse moyenne |ω|")
 plt.title("Épaule droite – activité posturale moyenne")
 plt.legend()
 plt.grid(True)
+plt.savefig("résultats/vitesse moy epaule droite.png")
 plt.show()
 
 # On passe ensuite à la moyenne pour l'épaule gauche
@@ -436,6 +445,7 @@ plt.ylabel("Vitesse moyenne |ω|")
 plt.title("Épaule gauche – activité posturale moyenne")
 plt.legend()
 plt.grid(True)
+plt.savefig("résultats/vitesse moy epaule gauche.png")
 plt.show()
 
 # On finit par l'écart-type épaule droite
@@ -460,6 +470,7 @@ plt.ylabel("Écart-type de ω")
 plt.title("Épaule droite – variabilité de la vitesse")
 plt.legend()
 plt.grid(True)
+plt.savefig("résultats/ecart type vitesse epaule droite.png")
 plt.show()
 
 # Et épaule gauche
@@ -484,4 +495,5 @@ plt.ylabel("Écart-type de ω")
 plt.title("Épaule gauche – variabilité de la vitesse")
 plt.legend()
 plt.grid(True)
+plt.savefig("résultats/ecart type vitesse epaule gauche.png")
 plt.show()
