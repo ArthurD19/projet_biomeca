@@ -137,3 +137,35 @@ hanche_min.plot(marker='o', figsize=(10, 6))
 plt.title('Angle de Hanche Minimum vs Puissance')
 plt.ylabel('Degrés')
 plt.savefig('hanche_min_power.png')
+
+# AUTRE TEST DE GRAPHE
+
+# On crée le DataFrame global à partir de vos données
+all_data = pd.concat([
+    df_results_Chrono250.assign(Position='Chrono', Puissance='250W'),
+    df_results_Chrono300.assign(Position='Chrono', Puissance='300W'),
+    df_results_Chrono350.assign(Position='Chrono', Puissance='350W'),
+    df_results_Route250.assign(Position='Route', Puissance='250W'),
+    df_results_Route300.assign(Position='Route', Puissance='300W'),
+    df_results_Route350.assign(Position='Route', Puissance='350W')
+])
+
+# Filtrer pour ne garder que les articulations principales (membres inférieurs + épaule)
+mask = all_data['Articulation'].isin(['Hanche droite', 'Genou droit', 'Cheville droite','Epaule droite','Hanche gauche', 'Genou gauche', 'Cheville gauche', 'Epaule gauche'])
+df_plot = all_data[mask]
+
+# Création du graphique comparatif détaillé
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(15, 6), sharey=True)
+
+# Graphique pour la Route
+df_plot[df_plot['Position'] == 'Route'].pivot(index='Articulation', columns='Puissance', values='RoM').plot(kind='bar', ax=ax1)
+ax1.set_title('RoM par Puissance - Position ROUTE')
+ax1.set_ylabel('Amplitude (degrés)')
+
+# Graphique pour le Chrono
+df_plot[df_plot['Position'] == 'Chrono'].pivot(index='Articulation', columns='Puissance', values='RoM').plot(kind='bar', ax=ax2)
+ax2.set_title('RoM par Puissance - Position CHRONO')
+
+plt.tight_layout()
+plt.savefig('rom_detail_puissance.png')
+plt.show()
